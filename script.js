@@ -1,3 +1,28 @@
+(function(){
+    emailjs.init("RjqREgDk5OMqHF4aO");
+})();
+
+function sendMail() {
+    let from_name = document.querySelector("input[name='from_name']").value;
+    let email = document.querySelector("input[name='email']").value;
+    let message = document.querySelector("textarea[name='message']").value;
+
+
+    let params = {
+        from_name : from_name,
+        email : email,
+        message : message
+    }
+    console.log(params);
+
+    emailjs.send("service_1oikzvx", "template_cxkl4lk", params).then(function(res){alert("이메일 발송이 완료되었습니다.")});
+}
+
+// parameter 방식으로 전환 (웹 전송방식 2가지 => 파라미터/제이슨) 
+
+
+
+
 // ===== Helpers =====
 const $ = (sel, parent = document) => parent.querySelector(sel);
 const $$ = (sel, parent = document) => [...parent.querySelectorAll(sel)];
